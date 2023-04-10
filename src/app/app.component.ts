@@ -15,6 +15,14 @@ export class AppComponent {
         const options = new cast.framework.CastReceiverOptions();
         const namespace = 'urn:x-cast:com.example.customwebreceiver';
 
+        // Debug Logger
+        const castDebugLogger = cast.debug.CastDebugLogger.getInstance();
+
+        // Enable debug logger and show a 'DEBUG MODE' overlay at top left corner.
+        context.addEventListener(cast.framework.system.EventType.READY, () => {
+            castDebugLogger.setEnabled(true);
+        });
+
         context.addCustomMessageListener(namespace, (event) => {
             this.test = event;
             console.log('Received message', this.test);
