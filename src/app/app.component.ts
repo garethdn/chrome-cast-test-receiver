@@ -18,6 +18,8 @@ export class AppComponent {
         // Debug Logger
         const castDebugLogger = cast.debug.CastDebugLogger.getInstance();
 
+        context.setLoggerLevel(cast.framework.LoggerLevel.DEBUG);
+
         // Enable debug logger and show a 'DEBUG MODE' overlay at top left corner.
         context.addEventListener(cast.framework.system.EventType.READY, () => {
             castDebugLogger.setEnabled(true);
